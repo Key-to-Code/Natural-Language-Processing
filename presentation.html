@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiduciary Lens - Presentation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FDFBF7;
+            /* Warm Cream */
+            --slide-bg: #FAF6EE;
+            /* Soft Ivory */
+            --box-bg: #F2F0EA;
+            /* Alabaster */
+
+            /* Deep Blue */
+            --text-main: #111E38;
+            /* Oxford Blue */
+            --text-muted: #3B4E61;
+            /* Slate Blue */
+            --accent-blue: #0B3C5D;
+            /* Prussian Blue */
+
+            /* Green */
+            --accent-primary: #1E3F20;
+            /* Forest Green */
+            --accent-green-light: #7A8B7B;
+            /* Sage Green */
+            --accent-green-alt: #4D6A66;
+            /* Patina Green */
+
+            /* Gold & Silver */
+            --accent-gold: #A38A5C;
+            /* Antique Gold */
+            --accent-gold-light: #D4C5A9;
+            /* Champagne Gold */
+            --border-color: #E5E5E5;
+            /* Platinum Gray */
+
+            /* Red */
+            --amrita-maroon: #A3133F;
+            /* AM Maroon */
+            --accent-red: #B35446;
+            /* Terracotta / Rust */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at top right, #FFFFFF, var(--bg-color) 60%);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 4rem;
+            box-sizing: border-box;
+        }
+
+        .content-box {
+            background: var(--slide-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem 4rem;
+            width: 85%;
+            max-width: 1200px;
+            box-shadow: 0 25px 50px -12px rgba(17, 30, 56, 0.1);
+            animation: fadeIn 1s ease-out;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, var(--text-main), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-top {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-gold-light);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p,
+        li {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: var(--box-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+        }
+
+        th,
+        td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--accent-gold-light);
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--amrita-maroon);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .banner-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FDFBF7;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .sdg-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            background: var(--accent-green-light);
+            color: var(--bg-color);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styles for Team Roles Slide */
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .role-card {
+            background: var(--box-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .role-photo-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--slide-bg);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .role-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .role-content h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+        }
+
+        .role-content p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .pipeline-box {
+            background: var(--box-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            text-align: center;
+            margin: 1rem 0;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slide 1: Title Slide -->
+    <div class="slide">
+        <div class="content-box" style="text-align: center;">
+            <div class="header-top">Case Study Review 1 | 23CSE471 – Natural Language Processing</div>
+            <h1>FIDUCIARY LENS</h1>
+            <p style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 3rem;">Indian Tax Document
+                Simplification and Financial Literacy Engine</p>
+            <p style="font-size: 1.2rem;">Evaluator: <strong>Professor T Senthil Kumar (CSE)</strong></p>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Collaborator Details -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>Project Team & Git Credentials</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>GitHub URL</th>
+                        <th>College Mail ID</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Anuja R S</td>
+                        <td>CB.SC.U4CSE24107</td>
+                        <td><a href="https://github.com/Anuja1307">github.com/Anuja1307</a>
+                        </td>
+                        <td>cb.sc.u4cse24107@cb.students.amrita.edu</td>
+                        <td>89254 77535</td>
+                    </tr>
+                    <tr>
+                        <td>Ganesh Sarathi</td>
+                        <td>CB.SC.U4CSE24118</td>
+                        <td><a href="https://github.com/GaneshSarathi19">github.com/GaneshSarathi19</a></td>
+                        <td>cb.sc.u4cse24118@cb.students.amrita.edu</td>
+                        <td>877 874 6516</td>
+                    </tr>
+                    <tr>
+                        <td>Gaurav Chandrasekhar</td>
+                        <td>CB.SC.U4CSE24119</td>
+                        <td><a href="https://github.com/Key-to-Code">github.com/Key-to-Code</a></td>
+                        <td>cb.sc.u4cse24119@cb.students.amrita.edu</td>
+                        <td>88259 84586</td>
+                    </tr>
+                    <tr>
+                        <td>Sudharshan Sambathkumar</td>
+                        <td>CB.SC.U4CSE24151</td>
+                        <td><a href="https://github.com/SL8Entropy">github.com/SL8Entropy</a></td>
+                        <td>cb.sc.u4cse24151@cb.students.amrita.edu</td>
+                        <td>74185 23795</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Engineering Roles & System Ownership -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>Domain Responsibilities & Code Execution</h2>
+            <div class="role-grid">
+                <div class="role-card">
+                    <div class="role-photo-container">
+                        <img src="./anuja_pic.jpeg" alt="Anuja" class="role-photo">
+                    </div>
+                    <div class="role-content">
+                        <h4>Backend Engineer (Anuja)</h4>
+                        <p>Develops secure APIs, manages user authentication, handles PDF processing queues, and
+                            integrates core NLP models with the database.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <div class="role-photo-container">
+                        <img src="./ganesh_pic.jpeg" alt="Ganesh" class="role-photo">
+                    </div>
+                    <div class="role-content">
+                        <h4>Product Engineer (Ganesh)</h4>
+                        <p>Designs the intuitive user interface where clients upload files, view simplified tax
+                            summaries, and interact with the AI advisor.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <div class="role-photo-container">
+                        <img src="./gaurav_pic.png" alt="Gaurav" class="role-photo">
+                    </div>
+                    <div class="role-content">
+                        <h4>NLP Engineer (Gaurav)</h4>
+                        <p>Manages the text processing pipeline, explaining its key phases while using chunking,
+                            and regex-based extraction to identify critical tax entities.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <div class="role-photo-container">
+                        <img src="./sud_pic.jpeg" alt="Sudharshan" class="role-photo">
+                    </div>
+                    <div class="role-content">
+                        <h4>Data Engineer (Sudharshan)</h4>
+                        <p>Builds pipelines to ingest, clean, and store massive tax codes and financial documents,
+                            creating the structured datasets needed for modeling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Target Audience Analysis -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>The Target Audience & Problem Definition</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Whose Problem Is It?</h3>
+                    <ul>
+                        <li><span class="highlight">Salaried Employees in India:</span> Everyday taxpayers navigating
+                            complex Form 16s, Investment Declarations, and dynamic monthly payslips.</li>
+                        <li><span class="highlight">Gig Workers & Freelancers:</span> Individuals filing without a
+                            centralized corporate HR team to assist them.</li>
+                        <li><span class="highlight">First-Time Taxpayers:</span> Fresh graduates entering the workforce
+                            who lack fundamental financial literacy.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Why Are We Solving It?</h3>
+                    <ul>
+                        <li><span class="highlight">Opaque Frameworks:</span> Documents are designed explicitly for
+                            professional Chartered Accountants (CAs) and the Income Tax Department, not regular
+                            citizens.
+                        </li>
+                        <li><span class="highlight">Financial Penalties:</span> Everyday citizens routinely overpay
+                            taxes or lose rightful savings because they cannot decipher complex sections like 80C, 80D,
+                            or House Rent Allowance (HRA) exemptions.</li>
+                        <li><span class="highlight">Asymmetrical Access:</span> Private, specialized asset management
+                            advisory services are heavily gated behind high subscription costs, leaving low-to-middle
+                            income groups behind.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Proposed Solution & Real-World Indian Data Mapping -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>Fiduciary Lens: Localization for Indian Tax Landscapes</h2>
+
+            <h3>The System Engine</h3>
+            <p>Accepts PDFs of Indian Form 16 documents, multi-page salary structures, and investment receipts,
+                translating them into crisp, plain-English educational roadmaps.</p>
+
+            <h3>Real-World Regulatory Grounding</h3>
+            <ul>
+                <li><span class="highlight">Data Ingestion Sources:</span> Parses PDF tax documents using PyMuPDF to
+                    maintain block structure and extract reliable text.</li>
+                <li><span class="highlight">Semantic Chunking:</span> Employs context-aware chunking to preserve
+                    paragraphs
+                    and legal clauses using recursive character splitting.</li>
+                <li><span class="highlight">Metadata Extraction:</span> Specially isolates regional financial entities:
+                    Assessment Years, Acts, and Section references (e.g., 80C) via regex to enrich vector databases.
+                </li>
+            </ul>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Board Motivation: SDGs -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>Board Focus: Socio-Economic Impact Alignment</h2>
+            <ul>
+                <li style="margin-bottom: 1.5rem;">
+                    <span class="sdg-tag">SDG 4</span> <strong class="highlight">Quality Education:</strong><br>
+                    Addresses the massive consumer financial literacy gap in India by translating intimidating legal
+                    jargon into readable, educational insights.
+                </li>
+                <li style="margin-bottom: 1.5rem;">
+                    <span class="sdg-tag">SDG 8</span> <strong class="highlight">Decent Work & Economic
+                        Growth:</strong><br>
+                    Maximizes disposable household income for middle-class workers by preventing accidental tax
+                    overpayments through hidden deductions.
+                </li>
+                <li>
+                    <span class="sdg-tag">SDG 10</span> <strong class="highlight">Reduced Inequalities:</strong><br>
+                    Provides an immediate, zero-cost automated educational tool to democratize access to financial
+                    knowledge, closing the resource gap between affluent entities and everyday earners.
+                </li>
+            </ul>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Technical Pipeline & Indian FinTech Benchmarks -->
+    <div class="slide">
+        <div class="content-box">
+            <h2>System Engineering Architecture & Competitors</h2>
+
+            <h3>The NLP Pipeline</h3>
+            <div class="pipeline-box">
+                PDF Parsing &rarr; Recursive Text Chunking &rarr; Regex Metadata Extraction &rarr;
+                Grounded Indian Tax RAG
+            </div>
+
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div>
+                    <h3>Commercial AI Tax Alternatives</h3>
+                    <p>Existing Indian platforms like <strong>ClearTax</strong>, <strong>TaxBuddy</strong>, and
+                        <strong>PlanMyTax.ai</strong> use AI primarily for <strong>automation</strong>, extracting Form
+                        16 data to autofill fields and speed up the ITR filing process.
+                    </p>
+                </div>
+                <div>
+                    <h3>Our Unique Educational Edge</h3>
+                    <p>Unlike commercial tools focused purely on extraction, <em>Fiduciary Lens</em> focuses on
+                        <strong>translation</strong> (SDG 4). It breaks down opaque legal jargon (e.g., Section 80C)
+                        into plain-English to actively educate the everyday taxpayer.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-text">Amrita Vishwa Vidyapeetham • Department of Computer Science & Engineering</div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to snap slides to view on arrow keys
+        document.addEventListener('keydown', (e) => {
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                window.scrollBy({ top: windowHeight, behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                window.scrollBy({ top: -windowHeight, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+
+</html>
